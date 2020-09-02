@@ -1,0 +1,20 @@
+{% extends 'basic/base.html' %}
+  {% block body_block %}
+    <div class="jumbotron">
+       <h2>Name    :{{obj.name}}</h2>
+       <h2>Location:{{obj.location}}</h2>
+
+       <h2>Movies:</h2>
+       <ol>
+         {% for m in obj.movies.all %}
+         <h2>Name    :{{m.name}}</h2>
+         <h2>Language:{{m.language}}</h2>
+         {% endfor %}
+       </ol>
+
+    </div>
+
+    <div class="container">
+      <p><a class="btn btn-warning" href="{% url 'basic:th_update' pk=obj.pk %}">Update</a></p>
+    </div>
+  {% endblock %}
